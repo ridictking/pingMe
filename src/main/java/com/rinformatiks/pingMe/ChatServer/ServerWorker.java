@@ -1,7 +1,7 @@
-package ChatServer;
+package com.rinformatiks.pingMe.ChatServer;
 
-import ChatClient.User;
-import org.apache.commons.lang.StringUtils;
+import com.rinformatiks.pingMe.ChatClient.User;
+import org.apache.commons.lang3.StringUtils;
 
 import java.io.*;
 import java.net.Socket;
@@ -36,7 +36,8 @@ public class ServerWorker  extends Thread{
         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
         String line ;
         while ((line= reader.readLine()) != null){
-            if (StringUtils.split(line)[0].equalsIgnoreCase("login")) {
+            String[] tokens = line.split(" ");
+            if (tokens[0].equalsIgnoreCase("login")) {
                 boolean login = handleLogin(line, writer);
                 if(login){
                     while((line= reader.readLine()) != null){
@@ -76,7 +77,7 @@ public class ServerWorker  extends Thread{
 
     private boolean handleLogin(String line, PrintWriter writer){
         this.server.workers.add(this);
-        String[] tokens = StringUtils.split(line);
+        String[] tokens = line.split(" ");
         String token = tokens[0];
         User user = new User(tokens[1], tokens[2]);
         if (tokens.length == 3) {

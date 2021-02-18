@@ -1,7 +1,6 @@
-package ChatServer;
+package com.rinformatiks.pingMe.ChatServer;
 
-import ChatClient.MessageObserver;
-import ChatClient.User;
+import com.rinformatiks.pingMe.ChatClient.MessageObserver;
 
 import java.io.PrintWriter;
 

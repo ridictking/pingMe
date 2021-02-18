@@ -1,4 +1,4 @@
-package ChatClient;
+package com.rinformatiks.pingMe.ChatClient;
 
 import java.io.PrintWriter;
 

@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="commons-lang-2.6">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/src/ChatServer/Libs/commons-lang-2.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/main/java/com/rinformatiks/pingMe/ChatServer/Libs/commons-lang-2.6.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

@@ -1,4 +1,4 @@
-package ChatServer;
+package com.rinformatiks.pingMe.ChatServer;
 
 import java.io.IOException;
 import java.net.ServerSocket;

@@ -1,6 +1,6 @@
-package ChatClient;
+package com.rinformatiks.pingMe.ChatClient;
 
-import ChatServer.ChatEnvironment;
+import com.rinformatiks.pingMe.ChatServer.ChatEnvironment;
 
 import java.io.PrintWriter;
 

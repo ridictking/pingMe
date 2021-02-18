@@ -1,4 +1,4 @@
-package ChatServer;
+package com.rinformatiks.pingMe.ChatServer;
 
 public class ServerMain {
     public static void main(String[] args) {
