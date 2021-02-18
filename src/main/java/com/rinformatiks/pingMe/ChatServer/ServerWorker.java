@@ -49,7 +49,6 @@ public class ServerWorker  extends Thread{
                         }
                     }
                 }
-                else writer.println("Unknown User");
             }else if(line.equalsIgnoreCase("quit")){
                 writer.println("Thanks for using pingME");
                 break;
@@ -75,18 +74,25 @@ public class ServerWorker  extends Thread{
         this.server.workers.remove(this);
     }
 
+    private ServerWorker getByName(String name){
+        return this.server.workers.stream().filter(x -> x.name.equalsIgnoreCase(name)).findFirst().orElse(null);
+    }
     private boolean handleLogin(String line, PrintWriter writer){
-        this.server.workers.add(this);
         String[] tokens = line.split(" ");
-        String token = tokens[0];
-        User user = new User(tokens[1], tokens[2]);
+        //String[] tokens = StringUtils.split(line);
         if (tokens.length == 3) {
             name = tokens[1];
             String password = tokens[2];
+
             if((name.equalsIgnoreCase("admin") && password.equalsIgnoreCase("admin"))
                 ||(name.equalsIgnoreCase("user") && password.equalsIgnoreCase("user"))
                 ||(name.equalsIgnoreCase("ade") && password.equalsIgnoreCase("ade"))){
-
+                if(getByName(this.name) != null){
+                    this.writer.println("User "+ this.name+ " is already in session ");
+                    return false;
+                }else{
+                    this.server.workers.add(this);
+                }
                 for(ServerWorker s : server.workers){
                     if(s == this) s.writer.println("You've logged in successfully");
                     else s.writer.println("User "+ name + " logged in successfully");
